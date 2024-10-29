@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="/path/to/htmx.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <title>LoLVN.GGG</title>
+</head>
+
+<body>
+
+    <div class="min-w-screen pt-8 px-2 flex flex-col">
+        <!-- background image -->
+        <div class="absolute inset-0 flex flex-col">
+            <!-- Background image with a specific height (e.g., 50% of screen) -->
+            <div class="relative h-1/2 w-full">
+                <img src="https://cdn.prod.website-files.com/5c1bb997cb1dd611a0e6c8ce/61bbe33dcf7945cee8382339_WestStudio_LOL_Splash_85.jpg"
+                    alt="Background Image" class="object-cover w-full h-full">
+
+                <!-- Gradient overlay to fade the image -->
+                <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
+            </div>
+
+            <!-- Black background for the remaining height -->
+            <div class="h-1/2 bg-black"></div>
+        </div>
+
+        <div class="bg-black rounded-md relative min-w-screen pt-8 px-2 flex flex-col text-white z-10 mt-48 gap-4">
+            <!-- name section  -->
+            <div class="border-solid border-black border-4 flex flex-col">
+                <div class="flex place-items-center gap-2">
+                    <img class="inline-block h-12 w-12 rounded-full ring-2 ring-white"
+                        src="https://i.pinimg.com/236x/21/61/e5/2161e5ef6476f3b2552458b3b58eae40.jpg" alt="Player">
+                    <div class="text-sm">
+                        <span class="font-bold">chimes train</span>
+                        <span class="text-neutral-400">#gbaooo</span>
+                    </div>
+                </div>
+            </div>
+            <!-- overview -->
+            <div class="flex justify-between">
+                <!-- rank -->
+                <div class="w-6/12">
+                    <div class="flex">
+                        <div class="flex justify-center self-center w-4/12">
+                            <img src="https://opgg-static.akamaized.net/images/medals_mini/diamond.png" alt="CHALLENGER"
+                                class="w-10 h-10">
+                        </div>
+                        <div class="flex flex-col p-2 text-left w-8/12">
+                            <span class="text-neutral-400 text-xs font-bold">SOLO / DUO</span>
+                            <span class="text-sm font-bold">Diamond I</span>
+                        </div>
+                    </div>
+                    <div class="flex">
+                        <div class="flex justify-center self-center w-4/12">
+                            <img src="https://opgg-static.akamaized.net/images/medals_mini/diamond.png" alt="CHALLENGER"
+                                class="w-10 h-10">
+                        </div>
+                        <div class="flex flex-col p-2 text-left w-8/12">
+                            <span class="text-neutral-400 text-xs font-bold">FLEX</span>
+                            <span class="text-sm font-bold">Diamond II</span>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- champion -->
+                <div class="w-6/12 ">
+                    <div class="grid grid-rows-2 gap-2 place-items-stretch h-full">
+                        <div class="flex gap-2 place-items-center">
+                            <img class="inline-block h-10 w-10 rounded-full "
+                                src="https://opgg-static.akamaized.net/meta/images/lol/latest/champion/Kalista.png?image=e_upscale,c_crop,h_103,w_103,x_9,y_9/q_auto:good,f_webp,w_160,h_160&v=1729058249"
+                                alt="Kalista">
+                            <div class="flex flex-col w-full">
+                                <div class="flex gap-2 place-items-center">
+                                    <span class="font-bold text-md text-sky-400">75%</span>
+                                    <span class="text-neutral-400 text-xs">3W - 1L</span>
+                                </div>
+                                <span class="text-xs font-bold">2.35 KDA</span>
+                            </div>
+                        </div>
+                        <div class="flex gap-2 place-items-center">
+                            <img class="inline-block h-10 w-10 rounded-full "
+                                src="https://opgg-static.akamaized.net/meta/images/lol/latest/champion/Jhin .png?image=e_upscale,c_crop,h_103,w_103,x_9,y_9/q_auto:good,f_webp,w_160,h_160&v=1729058249"
+                                alt="Jhin">
+                            <div class="flex flex-col w-full">
+                                <div class="flex gap-2 place-items-center">
+                                    <span class="font-bold text-md text-sky-400">75%</span>
+                                    <span class="text-neutral-400 text-xs">3W - 1L</span>
+                                </div>
+                                <span class="text-xs font-bold">2.35 KDA</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Match history -->
+            <div class="w-64 bg-zinc-800 border-solid border-black border-2 rounded-lg ">
+                <div class="flex flex-col">
+                    <div id="card-header" class="p-2 font-bold flex justify-between">
+                        <div class="flex flex-col text-sm">
+                            <span>Ranked Solo/ Duo</span>
+                            <div class="text-neutral-400 text-xs">
+                                <span>TODAY</span>
+                                <span>43:03 MIN</span>
+                            </div>
+                        </div>
+                        <div class="bg-sky-400 h-full rounded-xl flex items-center justify-center">
+                            <span class="text-sky-900 text-xs font-bold uppercase p-2">Victory</span>
+                        </div>
+
+                    </div>
+                    <div id="card-body" class="relative w-full h-full overflow-hidden">
+                        <!-- Blurred Image with Gradient Overlay -->
+                        <img class="w-full h-full object-cover blur-xs right-20"
+                            src="https://cdn.prod.website-files.com/5c1bb997cb1dd611a0e6c8ce/61bbe33dcf7945cee8382339_WestStudio_LOL_Splash_85.jpg"
+                            alt="Background Blurred">
+                        <div class="absolute inset-0 bg-gradient-to-r from-transparent to-white"></div>
+                        <div class="absolute bottom-3 left-2">
+                            <span class="font-bold text-xs text-white bg-neutral-500 rounded-full px-2 py-1">18</span>
+                            <span class="font-bold text-sm text-white">Riven</span>
+                        </div>
+
+                        <!-- 3x3 Grid Overlay on the Right Side of the Image -->
+                        <div class="absolute top-5 right-5 gap-1 grid grid-cols-3 grid-rows-3 place-items-end">
+                            <!-- Example grid items -->
+                            <div>
+                                <img src="https://opgg-static.akamaized.net/meta/images/lol/latest/item/3116.png?image=e_upscale,q_auto:good,f_webp,w_64,h_64&amp;v=1729058249"
+                                    width="22" height="22" alt="Trượng Pha Lê Rylai">
+                            </div>
+                            <div>
+                                <img src="https://opgg-static.akamaized.net/meta/images/lol/latest/item/3116.png?image=e_upscale,q_auto:good,f_webp,w_64,h_64&amp;v=1729058249"
+                                    width="22" height="22" alt="Trượng Pha Lê Rylai">
+                            </div>
+                            <div>
+                                <img src="https://opgg-static.akamaized.net/meta/images/lol/latest/item/3116.png?image=e_upscale,q_auto:good,f_webp,w_64,h_64&amp;v=1729058249"
+                                    width="22" height="22" alt="Trượng Pha Lê Rylai">
+                            </div>
+                            <div>
+                                <img src="https://opgg-static.akamaized.net/meta/images/lol/latest/item/3116.png?image=e_upscale,q_auto:good,f_webp,w_64,h_64&amp;v=1729058249"
+                                    width="22" height="22" alt="Trượng Pha Lê Rylai">
+                            </div>
+                            <div>
+                                <img src="https://opgg-static.akamaized.net/meta/images/lol/latest/item/3116.png?image=e_upscale,q_auto:good,f_webp,w_64,h_64&amp;v=1729058249"
+                                    width="22" height="22" alt="Trượng Pha Lê Rylai">
+                            </div>
+                            <div>
+                                <img src="https://opgg-static.akamaized.net/meta/images/lol/latest/item/3116.png?image=e_upscale,q_auto:good,f_webp,w_64,h_64&amp;v=1729058249"
+                                    width="22" height="22" alt="Trượng Pha Lê Rylai">
+                            </div>
+                            <div>
+                                <img src="https://opgg-static.akamaized.net/meta/images/lol/latest/spell/SummonerFlash.png?image=e_upscale,q_auto:good,f_webp,w_64,h_64&v=1729058249"
+                                    width="16" height="16" alt="Smite">
+                            </div>
+                            <div>
+                                <img src="https://opgg-static.akamaized.net/meta/images/lol/latest/spell/SummonerHeal.png?image=e_upscale,q_auto:good,f_webp,w_64,h_64&v=1729058249"
+                                    width="16" height="16" alt="SummonerHeal">
+                            </div>
+                            <div>
+                                <img src="https://opgg-static.akamaized.net/meta/images/lol/latest/item/3340.png?image=e_upscale,q_auto:good,f_webp,w_64,h_64&v=1729058249"
+                                    width="16" height="16" alt="Ward">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="card-footer">
+                        <div class="flex justify-between p-1 mx-2">
+                            <div class="flex justify-between w-8/12">
+                                <div class="flex gap-1 place-items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-gray-500"
+                                        viewBox="0 0 24 24">
+                                        <path fill="currentColor"
+                                            d="m19.05 21.6l-2.925-2.9l-1.5 1.5q-.275.275-.7.275t-.7-.275q-.575-.575-.575-1.425t.575-1.425l4.225-4.225q.575-.575 1.425-.575t1.425.575q.275.275.275.7t-.275.7l-1.5 1.5l2.9 2.925q.3.3.3.7t-.3.7l-1.25 1.25q-.3.3-.7.3t-.7-.3M21.7 6.2L10.65 17.25l.125.1q.575.575.575 1.425t-.575 1.425q-.275.275-.7.275t-.7-.275l-1.5-1.5l-2.925 2.9q-.3.3-.7.3t-.7-.3L2.3 20.35q-.3-.3-.3-.7t.3-.7l2.9-2.925l-1.5-1.5q-.275-.275-.275-.7t.275-.7q.575-.575 1.425-.575t1.425.575l.1.125L17.425 2.475q.275-.275.638-.425t.762-.15H21q.425 0 .713.288T22 2.9v2.575q0 .2-.075.388T21.7 6.2M6.225 10.125l-3.65-3.65Q2.3 6.2 2.15 5.838T2 5.075V2.9q0-.425.288-.712T3 1.9h2.175q.4 0 .763.15t.637.425l3.65 3.65q.3.3.3.713t-.3.712L7.65 10.125q-.3.3-.712.3t-.713-.3" />
+                                    </svg>
+                                    <span class="text-xs">12/2/7</span>
+                                </div>
+                                <div class="flex gap-1 place-items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-gray-500"
+                                        viewBox="0 0 512 512">
+                                        <path fill="currentColor"
+                                            d="M257.375 32.03C139.957 87.197 42.343 247.886 17.5 367.75c71.742 0 124.22 22.845 162.094 63.03l10.47-11.436c-28.06-28.873-64.935-52.446-113.564-75.906c26.142-65.033 66.028-163.458 116.72-169.188c19.835-2.243 41.05 9.735 64.155 43.438c72.33-120.27 141.014 38.54 180.875 125.75c-47.687 25.854-84.5 49.463-112.97 78.718l9.25 10.406c37.335-39.758 89.657-64.812 162.72-64.812C467.784 249.384 377.24 90.37 257.375 32.03m-79.72 243.314c-15.3-.083-26.405 6.436-26.405 16.656c0 12.58 16.834 26.038 37.594 30.063s37.594-2.92 37.594-15.5s-16.835-26.038-37.594-30.063c-3.893-.755-7.657-1.137-11.188-1.156zm156.345 0c-3.53.02-7.295.4-11.188 1.156c-20.76 4.025-37.593 17.483-37.593 30.063s16.833 19.524 37.592 15.5c20.76-4.025 37.594-17.484 37.594-30.063c0-10.22-11.105-16.74-26.406-16.656z" />
+                                    </svg>
+                                    <span class="text-xs">362</span>
+                                </div>
+                                <div class="flex gap-1 place-items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-gray-500"
+                                        viewBox="0 0 24 24">
+                                        <g fill="none">
+                                            <path fill="currentColor"
+                                                d="M21 8c0 1.02-1.186 1.92-3 2.462c-1.134.34-2.513.538-4 .538s-2.866-.199-4-.538C8.187 9.92 7 9.02 7 8c0-1.657 3.134-3 7-3s7 1.343 7 3" />
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="2"
+                                                d="M21 8c0-1.657-3.134-3-7-3S7 6.343 7 8m14 0v4c0 1.02-1.186 1.92-3 2.462c-1.134.34-2.513.538-4 .538s-2.866-.199-4-.538C8.187 13.92 7 13.02 7 12V8m14 0c0 1.02-1.186 1.92-3 2.462c-1.134.34-2.513.538-4 .538s-2.866-.199-4-.538C8.187 9.92 7 9.02 7 8" />
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="2"
+                                                d="M3 12v4c0 1.02 1.187 1.92 3 2.462c1.134.34 2.513.538 4 .538s2.866-.199 4-.538c1.813-.542 3-1.442 3-2.462v-1M3 12c0-1.197 1.635-2.23 4-2.711M3 12c0 1.02 1.187 1.92 3 2.462c1.134.34 2.513.538 4 .538c.695 0 1.366-.043 2-.124" />
+                                        </g>
+                                    </svg>
+                                    <span class="text-xs">12.4k</span>
+                                </div>
+
+                            </div>
+                            <div class="flex justify-center w-1/12 p-2">
+                                <button class="bg-gray-500 rounded-lg">
+                                    <div class="p-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-white"
+                                            viewBox="0 0 24 24">
+                                            <path fill="currentColor"
+                                                d="M8.025 22L6.25 20.225L14.475 12L6.25 3.775L8.025 2l10 10z" />
+                                        </svg>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- carousel -->
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
