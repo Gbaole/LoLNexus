@@ -1,9 +1,13 @@
-import { MainNav } from "@/components/main-nav"
-import { SummonerProfile } from "@/components/summoner-profile"
-import { MatchHistory } from "@/components/match-history"
-import { AdSpace } from "@/components/ad-space"
+import { MainNav } from "@/components/main-nav";
+import { SummonerProfile } from "@/components/summoner-profile";
+import { MatchHistory } from "@/components/match-history";
+import { AdSpace } from "@/components/ad-space";
 
-export default function SummonerPage({ params }: { params: { name: string } }) {
+export default async function SummonerPage({
+  params,
+}: {
+  params: { name: string };
+}) {
   return (
     <div className="min-h-screen bg-gradient-to-br from-void-900 via-void-800 to-shadowIsles-900">
       <MainNav />
@@ -21,6 +25,5 @@ export default function SummonerPage({ params }: { params: { name: string } }) {
         </div>
       </main>
     </div>
-  )
+  );
 }
-

@@ -1,9 +1,9 @@
-import { Search } from "@/components/search"
-import { MainNav } from "@/components/main-nav"
-import { FeaturedChampions } from "@/components/featured-champions"
-import { RecentMatches } from "@/components/recent-matches"
-import Link from "next/link"
-
+"use client";
+import { Search } from "@/components/search";
+import { MainNav } from "@/components/main-nav";
+import { FeaturedChampions } from "@/components/featured-champions";
+import { RecentMatches } from "@/components/recent-matches";
+import Link from "next/link";
 export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-900 via-indigo-900 to-blue-900">
@@ -20,12 +20,14 @@ export default function Home() {
           <RecentMatches />
         </div>
         <div className="mt-8 text-center">
-          <Link href="/summoner/Faker" className="text-purple-300 hover:text-purple-100 underline">
+          <Link
+            href="/summoner/Faker"
+            className="text-purple-300 hover:text-purple-100 underline"
+          >
             View Sample Summoner Profile: Faker
           </Link>
         </div>
       </main>
     </div>
-  )
+  );
 }
-
